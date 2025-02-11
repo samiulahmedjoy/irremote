@@ -1,2 +1,3 @@
-### Emulate switch functions but with Ir Remote
+### Ir Remote to turn relay switch off/on
 
+![CircuitDiagram](arduino.png)
