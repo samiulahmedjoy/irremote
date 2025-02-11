@@ -20,8 +20,8 @@ restricted movement. So this can really help them out.
 #include <IRremote.hpp>
 #include <Wire.h>
 
-#define IR_RECEIVE_PIN 14
-#define RELAY_PIN 12
+#define IR_RECEIVE_PIN 3
+#define RELAY_PIN 5
 
 const unsigned short int on_val = 25; // remote value for on
 const unsigned short int off_val = 69; //remote value for off
