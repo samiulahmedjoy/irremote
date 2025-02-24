@@ -3,7 +3,7 @@
 Author: Samiul Ahmed Joy
 Date: February 10, 2025
 Necessary Library: Arduino Irremote library
-Library link: https://github.com/Arduino-IRremote/Arduino-IRremote
+External Library link: https://github.com/Arduino-IRremote/Arduino-IRremote
 */
 
 /* Description/Usage
@@ -28,8 +28,7 @@ const unsigned short int off_val = 69; //remote value for off
 
 unsigned short int w = 0;
 
-void setup()
-{
+void setup() {
 	IrReceiver.begin(IR_RECEIVE_PIN, 0); // the 0 is for no constant blinking of led
 	pinMode(RECEIVE_PIN, INPUT);
 	pinMode(RELAY_PIN, OUTPUT);
