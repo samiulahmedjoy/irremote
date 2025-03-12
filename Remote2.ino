@@ -1,4 +1,3 @@
-
 /*
 Author: Samiul Ahmed Joy
 Date: February 10, 2025
@@ -18,7 +17,7 @@ restricted movement. So this can really help them out.
 */
 
 #include <IRremote.hpp>
-#include <Wire.h>
+#include <stdbool.h>
 
 #define IR_RECEIVE_PIN 5
 #define RELAY_PIN 3
@@ -26,7 +25,7 @@ restricted movement. So this can really help them out.
 const unsigned short int on_val = 25; // remote value for on
 const unsigned short int off_val = 69; //remote value for off
 
-unsigned short int w = 0;
+bool w = 0;
 
 void setup() {
 	IrReceiver.begin(IR_RECEIVE_PIN, 0); // the 0 is for no constant blinking of led
@@ -36,10 +35,12 @@ void setup() {
 
 void wifi_off() {
 	digitalWrite(RELAY_PIN, LOW);
+	w=0;
 }
 
 void wifi_on() {
 	digitalWrite(RELAY_PIN, HIGH);
+	w=0;
 }
 
 void loop() {
@@ -49,14 +50,12 @@ void loop() {
     switch(IrReceiver.decodedIRData.command) {
 			case on_val:
 				wifi_on();
-				w=1;
 				break ;
 			case off_val:
 				wifi_off();
-				w=0;
 				break ;
 			default:
-			if (w == 1) {
+			if (w==1) {
 				digitalWrite(LED_BUILTIN, HIGH);
 				delay(500);
 				digitalWrite(LED_BUILTIN, LOW);
